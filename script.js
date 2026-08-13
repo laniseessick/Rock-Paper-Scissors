@@ -1,6 +1,6 @@
 /*
 Project: Rock Paper Scissors Game
-Author: cheTechy
+Author: LaNise Essick
 created: 9/25/2024
 */
 
@@ -38,16 +38,17 @@ function getHumanChoice(){
 function playRound(huChoice, pcChoice){
 
     if (huChoice === pcChoice){
-        console.log('Draw!')
+        displayGame.appendChild(console.log('Draw!'))
     } else if(
         (huChoice === 'Rock' && pcChoice === 'Scissors') || 
         (huChoice === 'Paper' && pcChoice === 'Rock')|| 
         (huChoice === 'Scissors' && pcChoice === 'Paper') 
     ){
+        const playerWin = createElement("div");
         console.log(huChoice + ' beats ' + pcChoice + ', You won this round!' );
         humanScore++;
     }else{
-        console.log('You lost this round! ' + pcChoice + ' beats ' + huChoice + '.');
+        displayGame.appendChild('You lost this round! ' + pcChoice + ' beats ' + huChoice + '.');
         computerScore++;
     }
 
@@ -62,32 +63,6 @@ let computerScore = 0;
 
 //playGame function calls playRound function to play 5 rounds, keeps track of the scores and declares a winner at the end.
 function playGame(){
-
-    console.log('ROUND 1')
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-
-    console.log('ROUND 2')
-    const humanSelection2 = getHumanChoice();
-    const computerSelection2 = getComputerChoice();
-    playRound(humanSelection2, computerSelection2);
-
-    console.log('ROUND 3')
-    const humanSelection3 = getHumanChoice();
-    const computerSelection3 = getComputerChoice();
-    playRound(humanSelection3, computerSelection3);
-
-    console.log('ROUND 4')
-    const humanSelection4 = getHumanChoice();
-    const computerSelection4 = getComputerChoice();
-    playRound(humanSelection4, computerSelection4);
-
-    console.log('ROUND 5')
-    const humanSelection5 = getHumanChoice();
-    const computerSelection5 = getComputerChoice();
-    playRound(humanSelection5, computerSelection5);
-
     //Display final score message and 
     if (humanScore > computerScore){
         console.log('\nCongratulations, You Win! \n\nFinal Scores ' + '\n'+scores);
@@ -98,4 +73,30 @@ function playGame(){
     }
 }
 //playGame function call
-playGame();
+//playGame();
+
+    const displayGame = document.querySelector("#displayGame");
+
+    // const rock = document.createElement("button");
+    // rock.textContent = "Rock";
+    // displayGame.appendChild(rock);
+    
+    // const paper = document.createElement("button");
+    // paper.textContent = "Paper";
+    // displayGame.appendChild(paper);
+
+    // const scissors = document.createElement("button");
+    // scissors.textContent = "Scissors";
+    // displayGame.appendChild(scissors);
+
+    rock.addEventListener("click", () =>{
+        playRound("Rock");
+    });
+    paper.addEventListener("click", () =>{
+        playRound("Paper");
+    });
+    scissors.addEventListener("click", () =>{
+        playRound("Scissors")
+    });
+
+    const results = document.createElement("div");
