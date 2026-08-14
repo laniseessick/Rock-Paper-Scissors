@@ -1,4 +1,4 @@
-.gameUI{
+.interface{
     justify-content: start;
     align-items: center;
     min-height: 100vh;
@@ -12,12 +12,12 @@
     padding: 0.75rem 1.5rem; /* Scales vertically & horizontally */
     min-width: 120px;
     color: #000000;
-    background-color: #eb8525; /* Primary Royal Blue */
+    background-color: #ff7b00; /* Primary Royal Blue */
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: system-ui, sans-serif;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1;
@@ -25,11 +25,11 @@
     text-align: center;
 }
 
-title{
-    font-family: system-ui, -apple-system, sans-serif;
+.title{
+    font-family: system-ui, sans-serif;
 }
 p{
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: system-ui, sans-serif;
     font-size: 1rem ;
     font-weight: 600;
 }

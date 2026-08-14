@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<div class="gameUI">
+<div id="gameUI" class="interface">
     <head>
         <title>Rock, Paper,Scissors</title>
         <link rel="stylesheet"  href="gameUI.css">
     </head>
     <body>
-        <h1>Lets Play Rock, Paper, Scissors!</h1>
-        <p> Choose your weapon!</p>
+        <h1 class="title">Lets Play Rock, Paper, Scissors!</h1>
+        <p> Shoot!</p>
         <div id="controls">
-            <div class="col-auto rock">
+            <div class="col-auto">
                 <button id="rock" class="buttons"> Rock </button>
             </div>
-            <div class="col-auto paper">
+            <div class="col-auto">
                 <button id="paper" class="buttons"> Paper </button>
             </div>
-            <div class="col-auto scissors">
+            <div class="col-auto">
                 <button id="scissors" class="buttons"> Scissors </button>
             </div>
+        </div>
+        <div id="scores">
+            <p id="player-score"></p>
+            <p id="ai-score"></p>
+        </div>
+        <div id="results">
+            <p id="player-result"></p>
+            <p id="ai-result"></p>
         </div>
         
     </body>

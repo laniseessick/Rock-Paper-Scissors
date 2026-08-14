@@ -5,13 +5,16 @@ created: 9/25/2024
 */
 
 
-//getComputerChoice function randomly returns “rock”, “paper” or “scissors”
-function getComputerChoice(){
-    let pcChoice = Math.floor(Math.random()* 3) + 1;
+let playerScore = 0;
+let aiScore = 0;
 
-    if(pcChoice === 1){
+//getComputerChoice function randomly returns “rock”, “paper” or “scissors”
+function getAIchoice(){
+    let aiChoice = Math.floor(Math.random()* 3) + 1;
+
+    if(aiChoice === 1){
         return 'Rock';
-    }else if(pcChoice === 2){
+    }else if(aiChoice === 2){
         return 'Paper';
     } else {
         return 'Scissors'
@@ -19,14 +22,12 @@ function getComputerChoice(){
 }
 
 //getHumanChoice function takes the user choice and returns it
-function getHumanChoice(){
-    let huChoice = prompt('Choose P for Paper, S for Scissors, or R for Rock').toLowerCase();
-
-    if(huChoice === 'p'){
+function getPlayerChoice(input){
+    if(input === 'p'){
         return 'Paper';
-    }else if(huChoice === 'r'){
+    }else if(input === 'r'){
         return 'Rock';
-    }else if(huChoice === 's'){
+    }else if(input === 's'){
         return 'Scissors'
     } else{
         console.log('Invalid choice! Choose P for Paper, S for Scissors, or R for Rock ')
@@ -35,39 +36,30 @@ function getHumanChoice(){
 }
 
 //playRound function takes the human and computer player choices as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
-function playRound(huChoice, pcChoice){
+function playRound(playerChoice, aiChoice){
 
-    if (huChoice === pcChoice){
-        displayGame.appendChild(console.log('Draw!'))
-    } else if(
-        (huChoice === 'Rock' && pcChoice === 'Scissors') || 
-        (huChoice === 'Paper' && pcChoice === 'Rock')|| 
-        (huChoice === 'Scissors' && pcChoice === 'Paper') 
-    ){
-        const playerWin = createElement("div");
-        console.log(huChoice + ' beats ' + pcChoice + ', You won this round!' );
-        humanScore++;
-    }else{
-        displayGame.appendChild('You lost this round! ' + pcChoice + ' beats ' + huChoice + '.');
-        computerScore++;
+    if (playerChoice === aiChoice){
+        return 'Draw!'
+    } 
+    else if((playerChoice === 'Rock' && aiChoice === 'Scissors') || (playerChoice === 'Paper' && aiChoice === 'Rock')|| (playerChoice === 'Scissors' && aiChoice === 'Paper'))
+    {
+        playerScore++;
     }
-
-    scores = 'Player score: ' + humanScore + '  ' + 'Computer score: ' + computerScore;
-    console.log(scores);
-
+    else
+    {
+        aiScore++;
+    }
 }
 
-//global score variables to keep track of the players score
-let humanScore = 0;
-let computerScore = 0;
 
 //playGame function calls playRound function to play 5 rounds, keeps track of the scores and declares a winner at the end.
 function playGame(){
+    scores = 'Player score: ' + playerScore + '  ' + 'AI score: ' + aiScore;
     //Display final score message and 
-    if (humanScore > computerScore){
-        console.log('\nCongratulations, You Win! \n\nFinal Scores ' + '\n'+scores);
-    }else if(computerScore > humanScore){
-        console.log('\nSorry, You Lose! Better luck next time.\n\nFinal Scores ' + '\n'+scores);
+    if (playerScore > aiScore){
+        console.log('\nCongratulations, You Win! \n\nFinal Scores ' + '\n'+ scores);
+    }else if(aiScore > playerScore){
+        console.log('\nSorry, You Lose! Better luck next time.\n\nFinal Scores ' + '\n'+ scores);
     }else{
         console.log('\nThis game is a Draw! \n\nFinal Scores ' + '\n'+scores);
     }
@@ -75,28 +67,32 @@ function playGame(){
 //playGame function call
 //playGame();
 
-    const displayGame = document.querySelector("#displayGame");
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const playerResult = document.querySelector("#player-result");
+const aiResult = document.querySelector("#ai-result");
+const playerScores = document.querySelector("#player-score");
+const aiScores = document.querySelector("#ai-score");
 
-    // const rock = document.createElement("button");
-    // rock.textContent = "Rock";
-    // displayGame.appendChild(rock);
+
+rock.addEventListener("click", () =>{
     
-    // const paper = document.createElement("button");
-    // paper.textContent = "Paper";
-    // displayGame.appendChild(paper);
+    const playerChoice = getPlayerChoice("r");
+    const aiChoice = getAIchoice();
+    playerResult.textContent = `Player Choice: ${playerChoice}`;
+    aiResult.textContent = `AI Choice: ${aiChoice}`;
+    playRound(playerChoice, aiChoice)
+    playerScores.textContent = `Player Score: ${playerScore}`;
+    aiScores.textContent = `AI Choice: ${aiScore}`;
 
-    // const scissors = document.createElement("button");
-    // scissors.textContent = "Scissors";
-    // displayGame.appendChild(scissors);
-
-    rock.addEventListener("click", () =>{
-        playRound("Rock");
-    });
-    paper.addEventListener("click", () =>{
-        playRound("Paper");
-    });
-    scissors.addEventListener("click", () =>{
-        playRound("Scissors")
-    });
-
-    const results = document.createElement("div");
+});
+paper.addEventListener("click", () =>{
+    const playerChoice = getPlayerChoice("p");
+    displayResults.textContent = playerChoice;
+});
+scissors.addEventListener("click", () =>{
+    const playerChoice = getPlayerChoice("s");
+    displayResults.textContent = playerChoice;
+});
+const results = document.createElement("div");
