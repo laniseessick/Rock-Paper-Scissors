@@ -48,22 +48,6 @@ function playRound(playerChoice, aiChoice){
     }
 }
 
-
-//playGame function calls playRound function to play 5 rounds, keeps track of the scores and declares a winner at the end.
-function playGame(){
-    scores = 'Player score: ' + playerScore + '  ' + 'AI score: ' + aiScore;
-    //Display final score message and 
-    if (playerScore > aiScore){
-        console.log('\nCongratulations, You Win! \n\nFinal Scores ' + '\n'+ scores);
-    }else if(aiScore > playerScore){
-        console.log('\nSorry, You Lose! Better luck next time.\n\nFinal Scores ' + '\n'+ scores);
-    }else{
-        console.log('\nThis game is a Draw! \n\nFinal Scores ' + '\n'+scores);
-    }
-}
-//playGame function call
-//playGame();
-
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
