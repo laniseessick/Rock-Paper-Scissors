@@ -101,4 +101,3 @@ scissors.addEventListener("click", () =>{
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
 });
-const results = document.createElement("div");
