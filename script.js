@@ -77,22 +77,31 @@ const aiScores = document.querySelector("#ai-score");
 
 
 rock.addEventListener("click", () =>{
-    
     const playerChoice = getPlayerChoice("r");
     const aiChoice = getAIchoice();
-    playerResult.textContent = `Player Choice: ${playerChoice}`;
-    aiResult.textContent = `AI Choice: ${aiChoice}`;
+    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">`;
+    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">`;
     playRound(playerChoice, aiChoice)
-    playerScores.textContent = `Player Score: ${playerScore}`;
-    aiScores.textContent = `AI Choice: ${aiScore}`;
+    playerScores.textContent = `${playerScore}`;
+    aiScores.textContent = `${aiScore}`;
 
 });
 paper.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("p");
-    displayResults.textContent = playerChoice;
+    const aiChoice = getAIchoice();
+    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">`;
+    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">`;
+    playRound(playerChoice, aiChoice)
+    playerScores.textContent = `${playerScore}`;
+    aiScores.textContent = `${aiScore}`;
 });
 scissors.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("s");
-    displayResults.textContent = playerChoice;
+    const aiChoice = getAIchoice();
+    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">`;
+    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">`;
+    playRound(playerChoice, aiChoice)
+    playerScores.textContent = `${playerScore}`;
+    aiScores.textContent = `${aiScore}`;
 });
 const results = document.createElement("div");
