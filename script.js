@@ -8,7 +8,6 @@ created: 9/25/2024
 let playerScore = 0;
 let aiScore = 0;
 
-//getComputerChoice function randomly returns “rock”, “paper” or “scissors”
 function getAIchoice(){
     let aiChoice = Math.floor(Math.random()* 3) + 1;
 
@@ -21,7 +20,6 @@ function getAIchoice(){
     }  
 }
 
-//getHumanChoice function takes the user choice and returns it
 function getPlayerChoice(input){
     if(input === 'p'){
         return 'Paper';
@@ -35,7 +33,6 @@ function getPlayerChoice(input){
     }
 }
 
-//playRound function takes the human and computer player choices as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
 function playRound(playerChoice, aiChoice){
 
     if (playerChoice === aiChoice){

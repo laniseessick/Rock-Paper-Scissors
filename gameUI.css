@@ -1,9 +1,14 @@
+html,body{
+    margin: 0;
+    padding: 0 ;
+}
 .interface{
     justify-content: start;
     align-items: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #000000;
 }
 .buttons{
     display: inline-flex;
@@ -28,6 +33,7 @@
 .title{
     font-family: 'Bradley Hand ITC', sans-serif;
     white-space: nowrap;
+    color: #ff7b00;
 }
 p{
     font-family: system-ui, sans-serif;
@@ -51,17 +57,12 @@ p{
     font-family: 'Bradley Hand ITC','Courier New', Courier, monospace;
     font-size: 1.3rem;
     color: #ffee00;
-
     background-image: url("img/chalkboard.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* background-color: #000000; */
-    
-
     padding: 50px 20px 20px;
     border-radius: 5px;
-
     gap: 100px;
 }
 #player-score,#ai-score{
@@ -85,7 +86,7 @@ p{
     width: 100px;
     height: 100px;
     object-fit: contain;
-    transform: translateY(29px);
+    transform: translateY(25px);
 }
 .result {
     display: flex;
@@ -98,9 +99,8 @@ p{
     font-family: "Bradley Hand ITC","Brush Script MT","Comic Sans MS", "Comic Sans", "Apple Chancery";
     font-size: 1.3rem;
     font-weight: bolder;
-    /* height:-100px; */
     position: absolute;
-    bottom: 18%;
+    bottom: 20%;
     /* transform: translateY(30px); */
     
 }
