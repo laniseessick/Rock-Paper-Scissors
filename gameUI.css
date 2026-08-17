@@ -85,10 +85,11 @@ p{
     background-repeat: no-repeat;
     padding: 50px 20px 20px;
     border-radius: 5px;
-    gap: 100px;
+    gap: 75px;
 }
 #player-score,
-#ai-score{
+#ai-score,
+#draw-score{
     margin-top: 10px;
 }
 #results{

@@ -7,6 +7,7 @@ created: 9/25/2024
 //global score variables
 let playerScore = 0;
 let aiScore = 0;
+let drawScore = 0;
 
 function getAIchoice(){
     let aiChoice = Math.floor(Math.random()* 3) + 1;
@@ -33,7 +34,7 @@ function getPlayerChoice(input){
 function playRound(playerChoice, aiChoice){
 
     if (playerChoice === aiChoice){
-        return 'Draw!'
+        drawScore++;
     } 
     else if((playerChoice === 'Rock' && aiChoice === 'Scissors') || (playerChoice === 'Paper' && aiChoice === 'Rock')|| (playerChoice === 'Scissors' && aiChoice === 'Paper'))
     {
@@ -48,10 +49,13 @@ function playRound(playerChoice, aiChoice){
 function resetGame(){
     playerScore = 0;
     aiScore = 0;
+    drawScore = 0;
+
     playerResult.innerHTML = '';
     aiResult.innerHTML = '';
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
+    drawScores.textContent = `${drawScore}`;
 }
 
 const rock = document.querySelector("#rock");
@@ -61,6 +65,7 @@ const playerResult = document.querySelector("#player-result");
 const aiResult = document.querySelector("#ai-result");
 const playerScores = document.querySelector("#player-score");
 const aiScores = document.querySelector("#ai-score");
+const drawScores = document.querySelector("#draw-score")
 const reset = document.querySelector("#reset-game")
 
 
@@ -76,6 +81,7 @@ rock.addEventListener("click", () =>{
     playRound(playerChoice, aiChoice)
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
+    drawScores.textContent = `${drawScore}`;
 
 });
 paper.addEventListener("click", () =>{
@@ -90,6 +96,7 @@ paper.addEventListener("click", () =>{
     playRound(playerChoice, aiChoice)
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
+    drawScores.textContent = `${drawScore}`;
 });
 scissors.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("s");
@@ -103,5 +110,6 @@ scissors.addEventListener("click", () =>{
     playRound(playerChoice, aiChoice)
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
+    drawScores.textContent = `${drawScore}`;
 });
 reset.addEventListener("click",resetGame);
