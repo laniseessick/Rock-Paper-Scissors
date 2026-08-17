@@ -4,7 +4,7 @@ Author: LaNise Essick
 created: 9/25/2024
 */
 
-
+//global score variables
 let playerScore = 0;
 let aiScore = 0;
 
@@ -27,9 +27,6 @@ function getPlayerChoice(input){
         return 'Rock';
     }else if(input === 's'){
         return 'Scissors'
-    } else{
-        console.log('Invalid choice! Choose P for Paper, S for Scissors, or R for Rock ')
-        return getHumanChoice();
     }
 }
 
@@ -48,6 +45,15 @@ function playRound(playerChoice, aiChoice){
     }
 }
 
+function resetGame(){
+    playerScore = 0;
+    aiScore = 0;
+    playerResult.innerHTML = '';
+    aiResult.innerHTML = '';
+    playerScores.textContent = `${playerScore}`;
+    aiScores.textContent = `${aiScore}`;
+}
+
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
@@ -55,13 +61,18 @@ const playerResult = document.querySelector("#player-result");
 const aiResult = document.querySelector("#ai-result");
 const playerScores = document.querySelector("#player-score");
 const aiScores = document.querySelector("#ai-score");
+const reset = document.querySelector("#reset-game")
 
 
 rock.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("r");
     const aiChoice = getAIchoice();
-    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">`;
-    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">`;
+    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">
+    <span>You</span>
+    `;
+    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">
+    <span>Computer</span>
+    `;
     playRound(playerChoice, aiChoice)
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
@@ -70,8 +81,12 @@ rock.addEventListener("click", () =>{
 paper.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("p");
     const aiChoice = getAIchoice();
-    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">`;
-    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">`;
+    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">
+    <span>You</span>
+    `;
+    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">
+    <span>Computer</span>
+    `;
     playRound(playerChoice, aiChoice)
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
@@ -79,9 +94,14 @@ paper.addEventListener("click", () =>{
 scissors.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("s");
     const aiChoice = getAIchoice();
-    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">`;
-    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">`;
+    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">
+    <span>You</span>
+    `;
+    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">
+    <span>Computer</span>
+    `;
     playRound(playerChoice, aiChoice)
     playerScores.textContent = `${playerScore}`;
     aiScores.textContent = `${aiScore}`;
 });
+reset.addEventListener("click",resetGame);

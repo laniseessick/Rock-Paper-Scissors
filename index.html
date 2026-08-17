@@ -4,24 +4,29 @@
     <head>
         <title>Rock, Paper,Scissors</title>
         <link rel="stylesheet"  href="gameUI.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     </head>
     <body>
         <h1 class="title">Lets Play Paper, Scissors, Rock!</h1>
         <div id="scores">
-            <div class="score-title">SCOREBOARD</div>
+            <div class="score-title"> SCOREBOARD
+                <button id="reset-game" aria-label="Reset game">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+            </div>
 
             <div class="score">
-                <div class="label"> Player</div>
-                <div id="player-score"></div>
+                <div class="label"> You</div>
+                <div id="player-score">0</div>
             </div>
 
             <div class="score">
                 <div class="label"> Computer</div>
-                <div id="ai-score"></div>
+                <div id="ai-score">0</div>
             </div>
         </div>
 
-        <div id="controls">
+        <div id="choices">
             <button id="paper" class="buttons"> Paper </button>
             <button id="scissors" class="buttons"> Scissors </button>
             <button id="rock" class="buttons"> Rock </button>
@@ -30,11 +35,9 @@
         <div id="results">
             <div class="result">
                 <div id="player-result"></div>
-                <div class="result-txt">Player</div>
             </div>
             <div class="result">
                 <div id="ai-result"></div>
-                <div class="result-txt">Computer</div>
             </div>
         </div>
         
