@@ -5,12 +5,13 @@ html,body{
     min-height: 100%;
     background: black;
 }
-.interface{
-    justify-content: start;
+#gameUI{
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    zoom: 1.5;
 }
 .buttons{
     display: inline-flex;
