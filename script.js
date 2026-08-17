@@ -72,10 +72,10 @@ const reset = document.querySelector("#reset-game")
 rock.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("r");
     const aiChoice = getAIchoice();
-    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">
+    playerResult.innerHTML = `<img src="img/${playerChoice.toLowerCase()}.png" alt="${playerChoice}">
     <span>You</span>
     `;
-    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">
+    aiResult.innerHTML = `<img src="img/${aiChoice.toLowerCase()}.png" alt="${aiChoice}">
     <span>Computer</span>
     `;
     playRound(playerChoice, aiChoice)
@@ -87,10 +87,10 @@ rock.addEventListener("click", () =>{
 paper.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("p");
     const aiChoice = getAIchoice();
-    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">
+    playerResult.innerHTML = `<img src="img/${playerChoice.toLowerCase()}.png" alt="${playerChoice}">
     <span>You</span>
     `;
-    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">
+    aiResult.innerHTML = `<img src="img/${aiChoice.toLowerCase()}.png" alt="${aiChoice}">
     <span>Computer</span>
     `;
     playRound(playerChoice, aiChoice)
@@ -101,10 +101,10 @@ paper.addEventListener("click", () =>{
 scissors.addEventListener("click", () =>{
     const playerChoice = getPlayerChoice("s");
     const aiChoice = getAIchoice();
-    playerResult.innerHTML = `<img src="img/${playerChoice}.png" alt="${playerChoice}">
+    playerResult.innerHTML = `<img src="img/${playerChoice.toLowerCase()}.png" alt="${playerChoice}">
     <span>You</span>
     `;
-    aiResult.innerHTML = `<img src="img/${aiChoice}.png" alt="${aiChoice}">
+    aiResult.innerHTML = `<img src="img/${aiChoice.toLowerCase()}.png" alt="${aiChoice}">
     <span>Computer</span>
     `;
     playRound(playerChoice, aiChoice)
